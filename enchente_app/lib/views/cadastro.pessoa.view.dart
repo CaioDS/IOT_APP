@@ -1,6 +1,5 @@
-
-
-
+import 'package:enchente_app/controllers/pessoa.controller.dart';
+import 'package:enchente_app/models/Pessoa.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +9,8 @@ class CadastroPessoaView extends StatefulWidget {
 }
 
 class _CadastroPessoaViewState extends State<CadastroPessoaView> {
-
+  final pessoaController = new PessoaController();
+  Pessoa pessoa = new Pessoa();
   // VARIAVEIS
   final _Nome = TextEditingController();
   final _Telefone = TextEditingController();
@@ -136,9 +136,11 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
     setState(() {
       String nome = _Nome.text;
       String telefone = _Telefone.text;
-
-
+      pessoa.nome = nome;
+      pessoa.telefone = telefone;
     });
+
+    pessoaController.addPessoa(pessoa);
   }
 
   // // Widget text
