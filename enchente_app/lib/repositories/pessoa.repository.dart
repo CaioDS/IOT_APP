@@ -34,4 +34,20 @@ class PessoaRepository {
         return new List<Pessoa>();
     }
   }
+
+  Future<void> deletePessoa(int id) async {
+    Map<String, String> headers = {
+      "Content-Type": "application/json"
+    };
+    final body = await jsonEncode({
+      "Id": id,
+    });
+    final response = await http.delete(url+"/"+id.toString(), headers: headers);
+    switch (response.statusCode){
+      case 200:
+        return response.contentLength;
+      default:
+        return "Não foi possível excluir";
+    }
+  }
 }
