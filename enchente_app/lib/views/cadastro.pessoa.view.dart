@@ -24,8 +24,7 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
         title: Text("Cadastro Pessoa"),
         centerTitle: true,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.refresh),
-              onPressed: _resetFields)
+          IconButton(icon: Icon(Icons.refresh), onPressed: _resetFields)
         ],
       ),
       body: _body(),
@@ -33,7 +32,7 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
   }
 
   // PROCEDIMENTO PARA LIMPAR OS CAMPOS
-  void _resetFields(){
+  void _resetFields() {
     _Nome.text = "";
     _Telefone.text = "";
     setState(() {
@@ -52,7 +51,6 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
             children: <Widget>[
               _editTextNome("Nome", _Nome),
               _editTextTelefone("Telefone", _Telefone),
-
               _buttonCadastrar(),
               _textInfo(),
             ],
@@ -79,6 +77,7 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
       ),
     );
   }
+
   _editTextTelefone(String field, TextEditingController controller) {
     return TextFormField(
       controller: controller,
@@ -98,7 +97,6 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
     );
   }
 
-
   // PROCEDIMENTO PARA VALIDAR OS CAMPOS
   String _validate(String text, String field) {
     if (text.isEmpty) {
@@ -114,8 +112,7 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
       height: 45,
       child: RaisedButton(
         color: Colors.blueGrey,
-        child:
-        Text(
+        child: Text(
           "Cadastrar",
           style: TextStyle(
             color: Colors.white,
@@ -123,7 +120,7 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
           ),
         ),
         onPressed: () {
-          if(_formKey.currentState.validate()){
+          if (_formKey.currentState.validate()) {
             _cadastrar();
           }
         },
@@ -132,7 +129,7 @@ class _CadastroPessoaViewState extends State<CadastroPessoaView> {
   }
 
   // CADASTRA PESSOA
-  void _cadastrar(){
+  void _cadastrar() {
     setState(() {
       String nome = _Nome.text;
       String telefone = _Telefone.text;

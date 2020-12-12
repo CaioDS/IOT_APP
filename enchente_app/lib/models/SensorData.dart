@@ -1,6 +1,6 @@
 import 'Sensor.dart';
 
-class SensorData{
+class SensorData {
   int id;
   Nivel nivel;
   DateTime data;
@@ -12,7 +12,8 @@ class SensorData{
     id = json['Id'];
     nivel = json['Nivel'] != null ? json["Nivel"] : Nivel.minimo;
     data = json['Data'];
-    sensor = json['Sensor'] != null ? new Sensor.fromJson(json['Sensor']) : null;
+    sensor =
+        json['Sensor'] != null ? new Sensor.fromJson(json['Sensor']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -27,11 +28,4 @@ class SensorData{
   }
 }
 
-enum Nivel {
-  minimo,
-  baixo,
-  baixo_medio,
-  medio,
-  alto_medio,
-  alto
-}
+enum Nivel { minimo, baixo, baixo_medio, medio, alto_medio, alto }

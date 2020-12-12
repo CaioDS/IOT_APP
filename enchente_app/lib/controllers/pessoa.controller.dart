@@ -7,10 +7,10 @@ part 'pessoa.controller.g.dart';
 
 class PessoaController = _PessoaController with _$PessoaController;
 
-abstract class _PessoaController with Store{
+abstract class _PessoaController with Store {
   PessoaRepository repository;
 
-  _PessoaController(){
+  _PessoaController() {
     repository = new PessoaRepository();
     _init();
   }
@@ -33,7 +33,7 @@ abstract class _PessoaController with Store{
       list.clear();
       list.addAll(allist);
       status = AppStatus.success;
-    } catch(e) {
+    } catch (e) {
       status = AppStatus.error..value = e;
     }
   }
@@ -44,7 +44,7 @@ abstract class _PessoaController with Store{
     try {
       final request = await repository.createPessoa(pessoa);
       status = AppStatus.success;
-    } catch(e) {
+    } catch (e) {
       status = AppStatus.error..value = e;
     }
   }

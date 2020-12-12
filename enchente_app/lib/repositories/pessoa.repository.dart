@@ -9,25 +9,23 @@ class PessoaRepository {
 
   Future<List<Pessoa>> getAll() async {
     final response = await http.get(url);
-    switch (response.statusCode){
+    switch (response.statusCode) {
       case 200:
-        List<Pessoa> data = (json.decode(response.body) as List).map((e) => Pessoa.fromJson(e)).toList();
+        List<Pessoa> data = (json.decode(response.body) as List)
+            .map((e) => Pessoa.fromJson(e))
+            .toList();
         return data;
       default:
         return new List<Pessoa>();
     }
   }
-  
+
   Future<void> createPessoa(Pessoa pessoa) async {
-    Map<String, String> headers = {
-      "Content-Type": "application/json"
-    };
-    final body = await jsonEncode({
-      "Nome": pessoa.nome,
-      "Telefone": pessoa.telefone
-    });
+    Map<String, String> headers = {"Content-Type": "application/json"};
+    final body =
+        await jsonEncode({"Nome": pessoa.nome, "Telefone": pessoa.telefone});
     final response = await http.post(url, headers: headers, body: body);
-    switch (response.statusCode){
+    switch (response.statusCode) {
       case 200:
         return response.contentLength;
       default:
@@ -36,14 +34,13 @@ class PessoaRepository {
   }
 
   Future<void> deletePessoa(int id) async {
-    Map<String, String> headers = {
-      "Content-Type": "application/json"
-    };
+    Map<String, String> headers = {"Content-Type": "application/json"};
     final body = await jsonEncode({
       "Id": id,
     });
-    final response = await http.delete(url+"/"+id.toString(), headers: headers);
-    switch (response.statusCode){
+    final response =
+        await http.delete(url + "/" + id.toString(), headers: headers);
+    switch (response.statusCode) {
       case 200:
         return response.contentLength;
       default:

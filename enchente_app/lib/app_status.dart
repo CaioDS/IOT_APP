@@ -1,4 +1,4 @@
-enum AppStatus {loading, success, error, none}
+enum AppStatus { loading, success, error, none }
 
 extension AppStatusExt on AppStatus {
   static var _value;

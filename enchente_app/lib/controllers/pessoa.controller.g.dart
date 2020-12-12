@@ -46,6 +46,13 @@ mixin _$PessoaController on _PessoaController, Store {
     return _$getAllAsyncAction.run(() => super.getAll());
   }
 
+  final _$addPessoaAsyncAction = AsyncAction('_PessoaController.addPessoa');
+
+  @override
+  Future<void> addPessoa(Pessoa pessoa) {
+    return _$addPessoaAsyncAction.run(() => super.addPessoa(pessoa));
+  }
+
   @override
   String toString() {
     return '''

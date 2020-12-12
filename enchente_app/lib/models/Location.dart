@@ -7,7 +7,6 @@ class Location {
   Area area;
   Risco risco;
 
-
   Location({this.id, this.latitude, this.longitude, this.area});
 
   Location.fromJson(Map<String, dynamic> json) {
@@ -31,10 +30,4 @@ class Location {
   }
 }
 
-enum Risco {
-  minimo,
-  baixo,
-  medio,
-  alto,
-  muito_alto
-}
+enum Risco { minimo, baixo, medio, alto, muito_alto }

@@ -10,7 +10,8 @@ class AreasPessoa {
 
   AreasPessoa.fromJson(Map<String, dynamic> json) {
     id = json['Id'];
-    pessoa = json['Pessoa'] != null ? new Pessoa.fromJson(json['Pessoa']) : null;
+    pessoa =
+        json['Pessoa'] != null ? new Pessoa.fromJson(json['Pessoa']) : null;
     area = json['Area'] != null ? new Area.fromJson(json['Area']) : null;
   }
 

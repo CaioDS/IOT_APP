@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +7,6 @@ class CadastroSensorView extends StatefulWidget {
 }
 
 class _CadastroSensorViewState extends State<CadastroSensorView> {
-
   // VARIAVEIS
   final _NomeSensor = TextEditingController();
   final _Latitude = TextEditingController();
@@ -25,8 +21,7 @@ class _CadastroSensorViewState extends State<CadastroSensorView> {
         title: Text("Cadastro Sensor"),
         centerTitle: true,
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.refresh),
-              onPressed: _resetFields)
+          IconButton(icon: Icon(Icons.refresh), onPressed: _resetFields)
         ],
       ),
       body: _body(),
@@ -34,7 +29,7 @@ class _CadastroSensorViewState extends State<CadastroSensorView> {
   }
 
   // PROCEDIMENTO PARA LIMPAR OS CAMPOS
-  void _resetFields(){
+  void _resetFields() {
     _NomeSensor.text = "";
     _Latitude.text = "";
     _Longitude.text = "";
@@ -55,7 +50,6 @@ class _CadastroSensorViewState extends State<CadastroSensorView> {
               _editText("Nome do Sensor", _NomeSensor),
               _editText("Latitude", _Latitude),
               _editText("Longitude", _Longitude),
-
               _buttonCadastrar(),
               _textInfo(),
             ],
@@ -83,8 +77,6 @@ class _CadastroSensorViewState extends State<CadastroSensorView> {
     );
   }
 
-
-
   // PROCEDIMENTO PARA VALIDAR OS CAMPOS
   String _validate(String text, String field) {
     if (text.isEmpty) {
@@ -100,8 +92,7 @@ class _CadastroSensorViewState extends State<CadastroSensorView> {
       height: 45,
       child: RaisedButton(
         color: Colors.blueGrey,
-        child:
-        Text(
+        child: Text(
           "Cadastrar",
           style: TextStyle(
             color: Colors.white,
@@ -109,7 +100,7 @@ class _CadastroSensorViewState extends State<CadastroSensorView> {
           ),
         ),
         onPressed: () {
-          if(_formKey.currentState.validate()){
+          if (_formKey.currentState.validate()) {
             _cadastrar();
           }
         },
@@ -118,12 +109,11 @@ class _CadastroSensorViewState extends State<CadastroSensorView> {
   }
 
   // CADASTRA SENSOR
-  void _cadastrar(){
+  void _cadastrar() {
     setState(() {
       String nomeSensor = _NomeSensor.text;
       String latitude = _Latitude.text;
       String longitude = _Longitude.text;
-
     });
   }
 

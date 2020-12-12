@@ -4,6 +4,10 @@
         android:label="enchente_app"
         android:networkSecurityConfig="@xml/network_security_config" >
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBN-zSrrVKOixUDCMs5lVsn9WxKNTcKLP8"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

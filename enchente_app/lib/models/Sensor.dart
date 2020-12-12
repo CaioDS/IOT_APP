@@ -5,12 +5,14 @@ class Sensor {
   String nome;
   Location location;
 
-  Sensor({ this.id, this.nome, this.location });
+  Sensor({this.id, this.nome, this.location});
 
   Sensor.fromJson(Map<String, dynamic> json) {
     id = json['Id'];
     nome = json['Nome'];
-    location = json['Location'] != null ? new Location.fromJson(json['Location']) : null;
+    location = json['Location'] != null
+        ? new Location.fromJson(json['Location'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
