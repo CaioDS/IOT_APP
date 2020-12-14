@@ -34,9 +34,10 @@ class _MapsViewState extends State<MapsView> {
       _markers.clear();
 
       final marcadores = [
-        new LatLng(-19.9825479, -44.0334033),
-        new LatLng(-19.9249157,-43.9927343),
-        new LatLng(-19.9262669,-43.9808317),
+        new LatLng(-19.920023, -43.995020),
+        new LatLng(-19.923815, -43.996972),
+        new LatLng(-19.927315, -43.991898),
+        new LatLng(-19.921697, -43.987488),
       ];
 
       _polygns.add(Polygon(
@@ -50,10 +51,10 @@ class _MapsViewState extends State<MapsView> {
       
       final marker = Marker(
         markerId: MarkerId("tereza"),
-        position: LatLng(-19.9825479, -44.0334033),
+        position: LatLng(-19.923593, -43.992713),
         infoWindow: InfoWindow(
           title: "Tereza Cristina",
-          snippet: "Aqui tem um marcador",
+          snippet: "Nivel 0",
         ),
       );
        _markers["tereza"] = marker;

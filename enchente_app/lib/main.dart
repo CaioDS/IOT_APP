@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                             itemBuilder: (context, index) {
                               return Card(
                                 child: Container(
-                                  child: Text("dsfsdfdsdfdsfdsfdsfdss"),
+                                  child: Text("Area 1"),
                                 ),
                               );
                             }),
