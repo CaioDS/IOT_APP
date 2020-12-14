@@ -43,8 +43,11 @@ class _MapsViewState extends State<MapsView> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Google Office Locations'),
+          title: const Text('Areas'),
           backgroundColor: Colors.green[700],
+          actions: [
+            IconButton(icon: Icon(Icons.arrow_back), onPressed: () => Navigator.pop(context), alignment: Alignment.centerLeft,)
+          ],
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,

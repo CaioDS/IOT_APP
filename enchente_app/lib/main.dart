@@ -1,10 +1,11 @@
 import 'package:enchente_app/views/cadastro.pessoa.view.dart';
+import 'package:enchente_app/views/cadastro.sensor.view.dart';
 import 'package:enchente_app/views/maps.view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-void main() => runApp(MapsView());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -24,12 +25,22 @@ class MyApp extends StatelessWidget {
           title: Text("Dashboard"),
           centerTitle: true,
         ),
-        body: _body(context),
+        body: HomePage(),
       ),
     );
   }
+}
 
-  Widget _body(BuildContext context) {
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+ @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Padding(
@@ -41,23 +52,24 @@ class MyApp extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: RaisedButton(
                   child: Container(
-                    width: 50,
+                    width: 70,
                     child: Text("Maps"),
                   ),
                   color: Colors.lightBlueAccent,
-                  onPressed: () => Navigator.pushNamed(context, '/maps'),
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MapsView())),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
-                child: FloatingActionButton(
+                child: RaisedButton(
                   child: Container(
-                    width: 50,
-                    child: Text("Aqui tem um texto"),
+                    width: 70,
+                    child: Text("Cadastrar Pessoa"),
                   ),
-                  backgroundColor: Colors.blueAccent,
+                  color: Colors.lightBlueAccent,
                   onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => MapsView())),
+                      MaterialPageRoute(builder: (context) => CadastroPessoaView())),
                 ),
               ),
             ],
@@ -68,24 +80,16 @@ class MyApp extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
+               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20),
                 child: RaisedButton(
                   child: Container(
-                    width: 50,
-                    child: Text("Aqui tem um texto"),
+                    width: 100,
+                    child: Text("Cadastrar Sensor"),
                   ),
                   color: Colors.lightBlueAccent,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: RaisedButton(
-                  child: Container(
-                    width: 50,
-                    child: Text("Aqui tem um texto"),
-                  ),
-                  color: Colors.lightBlueAccent,
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CadastroSensorView())),
                 ),
               ),
             ],
@@ -156,4 +160,6 @@ class MyApp extends StatelessWidget {
       ],
     );
   }
+
+  
 }
